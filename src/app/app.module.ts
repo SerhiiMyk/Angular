@@ -11,7 +11,7 @@ import {UserDetailsComponent} from "./components/user-details/user-details.compo
 import {CommentsComponent} from "./components/comments/comments.component";
 import {PostComponent} from "./components/post/post.component";
 import {PostDetailsComponent} from "./components/post-details/post-details.component";
-
+import {PostResolveService} from "./services/post-resolve.service";
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import {PostDetailsComponent} from "./components/post-details/post-details.compo
     PostsComponent,
     UserDetailsComponent,
     CommentsComponent,
-    PostComponent, PostDetailsComponent,
+    PostComponent,
+    PostDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +41,7 @@ import {PostDetailsComponent} from "./components/post-details/post-details.compo
         path: 'posts',
         component: PostsComponent,
         children: [
-          {path: ':id', component:PostDetailsComponent },
+          {path: ':id', component: PostDetailsComponent, resolve: {data: PostResolveService}},
         ]
       },
       {path: 'comments', component: CommentsComponent},

@@ -7,8 +7,6 @@ import {UserComponent} from './components/user/user.component';
 import {UsersComponent} from './components/users/users.component';
 import {RouterModule} from "@angular/router";
 import {PostsComponent} from './components/posts/posts.component';
-import {UserDetailsComponent} from "./components/user-details/user-details.component";
-import {CommentsComponent} from "./components/comments/comments.component";
 import {PostComponent} from "./components/post/post.component";
 import {PostDetailsComponent} from "./components/post-details/post-details.component";
 import {PostResolveService} from "./services/post-resolve.service";
@@ -20,8 +18,6 @@ import {PostResolveService} from "./services/post-resolve.service";
     UserComponent,
     UsersComponent,
     PostsComponent,
-    UserDetailsComponent,
-    CommentsComponent,
     PostComponent,
     PostDetailsComponent,
   ],
@@ -32,9 +28,6 @@ import {PostResolveService} from "./services/post-resolve.service";
       {
         path: 'users',
         component: UsersComponent,
-        children: [
-          {path: ':id', component: UserDetailsComponent},
-        ]
       },
 
       {
@@ -44,7 +37,6 @@ import {PostResolveService} from "./services/post-resolve.service";
           {path: ':id', component: PostDetailsComponent, resolve: {data: PostResolveService}},
         ]
       },
-      {path: 'comments', component: CommentsComponent},
     ])
 
 

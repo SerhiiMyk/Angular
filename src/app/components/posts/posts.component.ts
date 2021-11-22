@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PostService} from "../../services/post.service";
+import {IPost} from "../../interfaces/post.interface";
 
 @Component({
   selector: 'app-posts',
@@ -7,7 +8,7 @@ import {PostService} from "../../services/post.service";
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  posts: any[] = []
+  posts: IPost[] = []
 
   constructor(private postService: PostService) {
   }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Post} from "../../models/Post";
 import {ActivatedRoute} from "@angular/router";
 import {PostService} from "../../services/post.service";
+import {IPost} from "../../interfaces/post.interface";
 
 @Component({
   selector: 'app-post-details',
@@ -9,7 +9,7 @@ import {PostService} from "../../services/post.service";
   styleUrls: ['./post-details.component.css']
 })
 export class PostDetailsComponent implements OnInit {
-  post: Post
+  post: IPost
 
   constructor(private activatedRoute: ActivatedRoute) {
     this.activatedRoute.data.subscribe(value => this.post = history.state);

@@ -1,1 +1,7 @@
-<p>{{user.name}} {{user.email}} <a routerLink="{{user.id}}">details</a></p>
+<br>
+<div><strong>name: </strong>{{user?.name}}</div>
+<div><strong>email: </strong>{{user?.email}}</div>
+<br>
+<strong>user posts</strong>
+<hr>
+<app-user-details *ngFor="let uPost of uPosts" [uPost]="uPost"></app-user-details>

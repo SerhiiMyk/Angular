@@ -18,7 +18,11 @@ export class PostService {
   }
 
   getPost(id: number): Observable<IPost> {
-    return this.HttpClient.get<IPost>(urls.posts+ '/' + id)
+    return this.HttpClient.get<IPost>(urls.posts + '/' + id)
+  }
+
+  getUserPosts(id: number): Observable<IPost[]> {
+    return this.HttpClient.get<IPost[]>(urls.users + '/' + id + '/' + 'posts')
   }
 
 }

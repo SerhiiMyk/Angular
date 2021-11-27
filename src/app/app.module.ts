@@ -6,6 +6,7 @@ import {Route, RouterModule} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import {FormsComponent, HomeComponent, UserComponent, UserDetailsComponent, UsersComponent} from "./components";
+import { UserPipe } from './pipes';
 
 const routs: Route[] = [
   {
@@ -29,6 +30,7 @@ const routs: Route[] = [
     HomeComponent,
     FormsComponent,
     UserDetailsComponent,
+    UserPipe,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,9 @@ const routs: Route[] = [
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    UserPipe,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

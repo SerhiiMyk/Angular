@@ -1,1 +1,6 @@
-<p>{{user?.id}} - {{user?.name}}</p>
+<br>
+<br>
+<div *ngIf="user">
+  <div><strong>phone: </strong>{{user?.phone}}</div>
+  <div><strong>website: </strong>{{user?.website}}</div>
+</div>

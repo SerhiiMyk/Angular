@@ -25,7 +25,7 @@ export class UserComponent implements OnInit {
   }
 
 
-  lift() {
+  handle() {
     this.router.navigate([this.user.id], {relativeTo: this.activateRoute, state: this.user})
     this.transferService.setUserId(this.user.id)
     this.btnToggle = this.userId !== this.user.id;

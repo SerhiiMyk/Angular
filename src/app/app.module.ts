@@ -7,15 +7,16 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import {FormsComponent, HomeComponent, UserComponent, UserDetailsComponent, UsersComponent} from "./components";
 import { UserPipe } from './pipes';
+import {UserResolveService} from "./services/user-resolve.service";
 
 const routs: Route[] = [
   {
     path: '', component: HomeComponent, children: [
       {
-        path: 'user',
+        path: 'users',
         component: UsersComponent,
         children: [
-          {path: ':id', component: UserDetailsComponent}
+          {path: ':id', component: UserDetailsComponent,resolve: {data: UserResolveService}}
         ]
       }
     ]

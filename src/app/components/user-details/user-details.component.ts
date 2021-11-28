@@ -13,7 +13,6 @@ export class UserDetailsComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute) {
     this.activatedRoute.data.subscribe(value => this.user = history.state);
-    console.log(this.user);
   }
 
   ngOnInit(): void {

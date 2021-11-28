@@ -7,10 +7,12 @@ import {IUser} from "../../interfaces/user.interface";
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
+
 })
 export class UsersComponent implements OnInit {
 
-  users: IUser[]=[]
+  users: IUser[] = []
+  userId: number;
 
   constructor(private userService: UserService) {
     userService.getUsers().subscribe(value => this.users = value)
@@ -19,4 +21,5 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
 }

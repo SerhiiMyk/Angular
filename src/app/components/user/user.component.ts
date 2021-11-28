@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IUser} from "../../interfaces/user.interface";
 import {IPost} from "../../interfaces/post.interface";
 import {ActivatedRoute} from "@angular/router";
-import {PostService, UserService} from "../../services";
+import {DataTransferService, PostService, UserService} from "../../services";
 
 @Component({
   selector: 'app-user',
@@ -12,13 +12,25 @@ import {PostService, UserService} from "../../services";
 export class UserComponent implements OnInit {
 
   @Input()
-  user:IUser
+  user: IUser
+  btnToggle: boolean = true;
+  userId :number
 
-  constructor() {
+  constructor(private transferService: DataTransferService) {
 
   }
 
   ngOnInit(): void {
+    this.transferService.getUserId().subscribe(value => this.userId=value)
+
+  }
+
+
+  lift() {
+    this.transferService.setUserId(this.user.id)
+    this.btnToggle = this.userId !== this.user.id;
+
   }
 
 }
+

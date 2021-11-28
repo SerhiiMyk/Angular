@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IPost} from "../../interfaces/post.interface";
+import {IUser} from "../../interfaces/user.interface";
 
 @Component({
   selector: 'app-user-details',
@@ -9,7 +10,7 @@ import {IPost} from "../../interfaces/post.interface";
 export class UserDetailsComponent implements OnInit {
 
   @Input()
-  uPost:IPost
+  user:IUser
   constructor() { }
 
   ngOnInit(): void {

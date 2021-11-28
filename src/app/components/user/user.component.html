@@ -1,1 +1,6 @@
-<div>{{user|user}}</div>
+<div class="flex">
+  <p style="width: 450px">{{user|user}}</p>
+  <button *ngIf="btnToggle" (click)="lift()" >show</button>
+  <div style="margin-left: 10px">userID={{userId}}</div>
+</div>
+<app-user-details [user]="user"></app-user-details>

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IPost} from "../../interfaces/post.interface";
 import {IUser} from "../../interfaces/user.interface";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-user-details',
@@ -9,9 +9,12 @@ import {IUser} from "../../interfaces/user.interface";
 })
 export class UserDetailsComponent implements OnInit {
 
-  @Input()
-  user:IUser
-  constructor() { }
+  user: IUser
+
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.data.subscribe(value => this.user = history.state);
+    console.log(this.user);
+  }
 
   ngOnInit(): void {
   }

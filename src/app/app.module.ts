@@ -15,7 +15,7 @@ const routs: Route[] = [
         path: 'user',
         component: UsersComponent,
         children: [
-          {path: ':id', component: UserComponent}
+          {path: ':id', component: UserDetailsComponent}
         ]
       }
     ]

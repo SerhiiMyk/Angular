@@ -4,39 +4,24 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {Route, RouterModule} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {UserPipe} from './pipes';
 
-import {FormsComponent, HomeComponent, UserComponent, UserDetailsComponent, UsersComponent} from "./components";
-import { UserPipe } from './pipes';
-import {UserResolveService} from "./services/user-resolve.service";
+import {UserModule} from "./modules/user/user.module";
+import {HomeComponent} from './components/home/home.component';
+import {UsersComponent} from "./modules/user/components/users/users.component";
+import {AppRoutingModule} from "./app-routing.module";
 
-const routs: Route[] = [
-  {
-    path: '', component: HomeComponent, children: [
-      {
-        path: 'users',
-        component: UsersComponent,
-        children: [
-          {path: ':id', component: UserDetailsComponent,resolve: {data: UserResolveService}}
-        ]
-      }
-    ]
-  },
-]
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
-    UsersComponent,
-    HomeComponent,
-    FormsComponent,
-    UserDetailsComponent,
     UserPipe,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routs),
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
   ],

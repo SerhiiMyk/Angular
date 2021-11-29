@@ -28,5 +28,6 @@ export class UserComponent implements OnInit {
     this.router.navigate([this.user.id], {relativeTo: this.activateRoute, state: this.user})
     this.transferService.setUserId(this.user.id)
   }
+
 }
 

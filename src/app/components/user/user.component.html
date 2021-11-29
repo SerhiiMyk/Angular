@@ -1,6 +1,5 @@
 <div class="flex">
-  <p style="width: 450px">{{user|user}}</p>
-  <button *ngIf="btnToggle" (click)="handle()" >show</button>
-  <div style="margin-left: 10px">userID={{userId}}</div>
+  <p style="width: 450px; margin-top: 5px">{{user|user}}</p>
+  <button *ngIf="user.id!=userId" (click)="handle()" >details</button>
 </div>
 

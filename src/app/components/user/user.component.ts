@@ -21,15 +21,12 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.transferService.getUserId().subscribe(value => this.userId = value)
-
   }
 
 
   handle() {
     this.router.navigate([this.user.id], {relativeTo: this.activateRoute, state: this.user})
     this.transferService.setUserId(this.user.id)
-    this.btnToggle = this.userId !== this.user.id;
   }
-
 }
 

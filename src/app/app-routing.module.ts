@@ -2,12 +2,16 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Route, RouterModule} from "@angular/router";
 import {HomeComponent} from "./components/home/home.component";
+import {LoginComponent} from "./components/login/login.component";
+import {CarsComponent} from "./components/admin/cars/cars.component";
 
 const routs: Route[] = [
   {
     path: '', component: HomeComponent, children: [
-      {path: 'users', loadChildren: () => import('./modules/user/user.module').then(value => value.UserModule)},
-      {path: 'posts', loadChildren: () => import('./modules/post/post.module').then(value => value.PostModule)}
+      {path: '', redirectTo: 'login', pathMatch: 'full'},
+      {path: 'login', component: LoginComponent},
+      {path: 'cars', component: CarsComponent},
+      {path: 'admin', loadChildren: () => import('./components/admin/admin.module').then(value => value.AdminModule)}
     ]
   }
 ]
